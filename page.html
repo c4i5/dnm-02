@@ -20,13 +20,16 @@
             // Cursos que me gustaría tomar y nunca podré
             var data, datosArreglados; 
             function preload(){
-            data = loadJSON("https://raw.githubusercontent.com/c4i5/dnm-02/main/cursos.json");}
+                data = loadJSON("https://raw.githubusercontent.com/c4i5/dnm-02/main/cursos.json");
+            }
+
             // En esta ocasión no necesito un canvas 
             // Lo que sí necesito una lista de definición por cada ítem en el arreglo contenido por la variable de nombre data
             function setup() {
                 noCanvas();
+                datosArreglados = Object.values(data);
                 console.log(data);
-                data.forEach((x) => {
+                datosArreglados.forEach((x) => {
                     createElement("dl", "<dt>" + x.name + " (" + x.code + ")</dt><dd>" + x.about + "</dd>").parent("aqui");
                 });
             }
